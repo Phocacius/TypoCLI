@@ -1,0 +1,22 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:be.container>
+    <div class="typo3-fullDoc">
+        <div id="typo3-docheader">
+            <div id="typo3-docheader-row1">
+            </div>
+            <div id="typo3-docheader-row2">
+                <div class="docheader-row2-left">
+                </div>
+                <div class="docheader-row2-right">
+                    <f:be.pagePath />
+                    <f:be.pageInfo />
+                </div>
+            </div>
+        </div>
+        <div id="typo3-docbody">
+            <div id="typo3-inner-docbody">
+                <f:render section="Content" />
+            </div>
+        </div>
+    </div>
+</f:be.container>

@@ -1,0 +1,42 @@
+
+<f:layout name="BackendList" />
+
+<f:section name="content">
+    <h1>Configure {{TableName}}s</h1>
+
+    <f:flashMessages />
+
+    <f:if condition="{{{tableName}}s}">
+        <f:then>
+            <f:be.widget.paginate objects="{{{tableName}}s}" as="paginated{{tableName}}s"
+                                  configuration="{itemsPerPage: 15}">
+                <table  class="tx_{{ext}} t3-table" >
+                    <tr class="t3-row-header">
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+
+                    <f:for each="{paginated{{tableName}}s}" as="{{tableName}}">
+                        <tr class="db_list_normal">
+
+                            <td><f:link.action action="edit" arguments="{{{tableName}} : {{tableName}}}">Edit</f:link.action></td>
+                            <td><f:link.action action="delete" arguments="{{{tableName}} : {{tableName}}}">Delete</f:link.action></td>
+                        </tr>
+                    </f:for>
+                </table>
+
+            </f:be.widget.paginate>
+        </f:then>
+        <f:else>
+            <div class="typo3-message message-notice">
+                <div class="message-body">
+                    No {{TableName}}s have been created yet on this page. Consider that {{TableName}}s are created per page and are therefore only available at the page they were created.
+                </div>
+            </div>
+        </f:else>
+    </f:if>
+
+    <f:link.action action="new">Add new {{TableName}}</f:link.action>
+
+
+</f:section>

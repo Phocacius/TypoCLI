@@ -1,0 +1,15 @@
+
+<f:layout name="BackendList" />
+
+<f:section name="content">
+<h1>Edit {{TableName}}</h1>
+
+<f:flashMessages />
+
+<f:render partial="FormErrors" />
+
+<f:form action="update" name="{{tableName}}" object="{{{tableName}}}" >
+<f:render partial="{{TableName}}sFormFields" arguments="{{{tableName}}:{{tableName}}}" />
+	<f:form.submit value="Save" />
+</f:form>
+</f:section>
